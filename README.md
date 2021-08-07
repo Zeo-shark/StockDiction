@@ -1,7 +1,8 @@
 <p align="center">
   <a href="https://github.com/Zeo-shark/StockDiction">
+    **Stocdiction**
   </a>
-Stockdition
+
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">

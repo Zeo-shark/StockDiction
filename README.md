@@ -1,4 +1,4 @@
-# Stocdiction
+#                                      Stocdiction (Stock-Prediction)
 It is a web app which uses machine learning and sntiment analysis
 
 # Snippet

@@ -1,6 +1,7 @@
-#                                      Stocdiction (Stock-Prediction)
-It is a web app which uses machine learning and sntiment analysis
-
+<p align="center">
+  <a href="https://github.com/othneildrew/Stocdiction">
+    <img src="" alt="Logo" width="80" height="80">
+  </a>
 # Snippet
 
 <!-- TABLE OF CONTENTS -->
@@ -29,11 +30,10 @@ It is a web app which uses machine learning and sntiment analysis
   </ol>
 </details>
 
-## Key Features
-
-
-
-## Installation
+# About the Project
+  ## Built with
+  
+# Getting-Started
 
 ### Downloading and instalations-steps
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/othneildrew/Stocdiction">
+  <a href="https://github.com/Zeo-shark/StockDiction">
     <img src="" alt="Logo" width="80" height="80">
   </a>
 # Snippet

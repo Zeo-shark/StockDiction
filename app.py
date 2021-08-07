@@ -68,3 +68,57 @@ def processRequest(req):
         return res
     else:
         return {}
+
+def getChartURL(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    stock_symbol = parameters.get("stock_symbol")
+    chart_url = "https://www.etoro.com/markets/" + stock_symbol + "/chart"
+    return chart_url
+
+def logMessage(req):
+    print "LOGGING!"
+    originalRequest = req.get("originalRequest")
+    source = ''
+
+    if originalRequest != None:
+        source = originalRequest.get("source")
+
+    if source != 'facebook':
+        print "not from facebook"
+        return 
+
+    data = originalRequest.get("data")
+    time_stamp = data.get("timestamp")
+    sender_id = data.get("sender").get("id")
+    # recipient_id = data.get("recipient").get("id")
+    message = data.get("message")
+    text = message.get("text")
+
+    # log incoming messagesw
+    response = requests.post("http://api.botimize.io/messages?apikey=ZG2H9YHCZJQS9JTOTXXHL842QDGK5VHI", data={
+      "platform": "facebook",
+      "direction": "incoming",
+      "raw": {
+          "object":"page",
+          "entry":[
+            {
+              "id":"986319728104533",
+              "time":1458692752478,
+              "messaging":[
+                {
+                  "sender":{
+                    "id":sender_id
+                  },
+                  "recipient":{
+                    "id":"986319728104533"
+                  }
+                }
+              ]
+            }
+          ]
+      }
+    })
+    print response
+    print response.content 
+    print "Success"

@@ -353,3 +353,104 @@ def makeWebhookResult(data, req, stock_symbol):
                     }
                 }
             }
+
+    elif action == "Prediction.stockForecast":
+        speech = "Predicted price for coming days: " + str(data)
+    elif action == "Feelings.analyze":
+        speech = "Feelings for " + stock_symbol + ": " + str(data)
+    elif action == "Decision.Classification":
+        speech = "I think we should " + str(data) + " " + stock_symbol 
+        if source == 'facebook':
+            return {
+                "speech": speech,
+                "displayText": speech,
+                "source": "apiai-wallstreetbot-webhook", 
+                "data": {
+                    "facebook": {
+                      "text":speech + '. Type away more questions!',
+                        "quick_replies":[
+                          {
+                            "content_type":"text",
+                            "title":"Need help?",
+                            "payload":"Help"
+                          }
+                        ]
+                    }
+                }
+            }
+
+    elif action == "input.welcome":
+        speech = str(data)
+    elif action == "Visualize.chart":
+        speech = 'Here is your chart:'
+        chart_url = str(data)
+        chart_speech = "Chart for " + stock_symbol
+
+        if source == 'facebook':
+            return {
+                "speech": speech,
+                "displayText": speech,
+                "source": "apiai-wallstreetbot-webhook", 
+                "data": {
+                    "facebook": {
+                      "attachment": {
+                        "type": "template",
+                        "payload": {
+                                "template_type":"button",
+                                "text":speech,
+                                "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":chart_url,
+                                    "title":chart_speech,
+                                    "webview_height_ratio": "compact"
+                                  },
+                                ]
+                            }
+                         }
+                    }
+                }
+            }
+
+    else:
+        speech = str(data)
+
+    print("Response:")
+    print(speech)
+
+    return {
+        "speech": speech,
+        "displayText": speech,
+        "source": "apiai-wallstreetbot-webhook"
+    }
+
+    #gif example
+
+    # Image example
+    # "data": {
+    #     "facebook": {
+    #       "attachment": {
+    #         "type": "image",
+    #         "payload": {
+    #         "url": "https://www.testclan.com/images/testbot/siege/weapons/assault-rifles.jpg"
+    #          }
+    #         }
+    #       }
+    #     }
+
+    # quick reply template
+  #   "message":{
+  #   "text":"Pick a color:",
+  #   "quick_replies":[
+  #     {
+  #       "content_type":"text",
+  #       "title":"Red",
+  #       "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+  #     },
+  #     {
+  #       "content_type":"text",
+  #       "title":"Green",
+  #       "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+  #     }
+  #   ]
+  # }

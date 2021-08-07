@@ -230,3 +230,126 @@ def extract_days(time):
                 num_days = int(dates[0])
 
     return num_days
+
+# intent current price
+def getStockCurrentPrice(req):
+    # db test
+    # print 'Accessing database'
+    # cursor = cnx.cursor(buffered = True)
+    # str_call = 'SELECT * FROM USER_BASIC_INFO'
+    # cursor.execute(str_call);
+
+    # data = cursor.fetchone()
+    # cnx.commit()
+    # cursor.close()
+
+    # print data
+    # db test
+
+    result = req.get("result")
+    parameters = result.get("parameters")
+    stock_symbol = parameters.get("stock_symbol")
+    if stock_symbol is None:
+        return None
+
+    prediction = predictStocks()
+    current_price = prediction.getCurrentPrice(stock_symbol)
+
+
+    return str(current_price)
+
+
+# intent dividend date
+def getStockDividendPayDate(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    stock_symbol = parameters.get("stock_symbol")
+    if stock_symbol is None:
+        return None
+
+    stock = Share(stock_symbol)
+    pay_date = stock.get_dividend_pay_date()
+    if pay_date is None:
+        return 'No Dividend Date Avaliable'
+    return str(pay_date)
+
+def getStockInfo(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    stock_symbol = parameters.get("stock_symbol")
+    if stock_symbol is None:
+        return None
+
+    stock = Share(stock_symbol)
+    info = stock.get_info()
+    return str(info)
+
+# last 5 days data
+def getHistoricalData(req):
+    result = req.get("result")
+    parameters = result.get("parameters")
+    stock_symbol = parameters.get("stock_symbol")
+    if stock_symbol is None:
+        return None
+
+    last_days = 5
+
+    past_days_ago = datetime.now() - timedelta(days=last_days)
+    past_days_ago_str = past_days_ago.strftime('%Y-%m-%d')
+
+    now = datetime.now().date()
+    now_str = now.strftime('%Y-%m-%d')
+
+    stock = Share(stock_symbol)
+    return str(stock.get_historical(past_days_ago_str, now_str))
+
+# return to API.AI
+def makeWebhookResult(data, req, stock_symbol):
+    action = req.get("result").get("action")
+    originalRequest1 = req.get("originalRequest")
+    source = ''
+    if originalRequest1 != None:
+        source = originalRequest1.get("source")
+    if action == "CurrentPrice.price":
+        speech = "Current Price for the stock is $" + str(data)
+        next_speech = "Predict " + stock_symbol
+        # news_speech = "News for " + stock_symbol
+        # news_url = "http://finance.yahoo.com/quote/" + stock_symbol
+        chart_speech = "Chart for " + stock_symbol
+        chart_url = "https://www.etoro.com/markets/" + stock_symbol + "/chart"
+        feelings_speech = 'Feelings ' + stock_symbol
+        if source == 'facebook':
+            return {
+                "speech": speech,
+                "displayText": speech,
+                "source": "apiai-wallstreetbot-webhook", 
+                "data": {
+                    "facebook": {
+                      "attachment": {
+                        "type": "template",
+                        "payload": {
+                                "template_type":"button",
+                                "text":speech,
+                                "buttons":[
+                                  {
+                                    "type":"web_url",
+                                    "url":chart_url,
+                                    "title":chart_speech,
+                                    "webview_height_ratio": "compact"
+                                  },
+                                  {
+                                    "type":"postback",
+                                    "title":next_speech,
+                                    "payload":next_speech
+                                  },
+                                  {
+                                    "type":"postback",
+                                    "title":feelings_speech,
+                                    "payload":feelings_speech
+                                  }
+                                ]
+                            }
+                         }
+                    }
+                }
+            }

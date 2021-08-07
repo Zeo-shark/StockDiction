@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://github.com/Zeo-shark/StockDiction">
-    <img src="" alt="Logo" width="80" height="80">
+    # Stockdition
   </a>
-# Snippet
+Stockdition
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">

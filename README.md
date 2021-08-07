@@ -1,6 +1,5 @@
 <p align="center">
   <a href="https://github.com/Zeo-shark/StockDiction">
-    # Stockdition
   </a>
 Stockdition
 

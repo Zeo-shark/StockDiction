@@ -8,7 +8,7 @@
   <h1 align="center">StocDiction</h1>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+   
     <br />
     
     

@@ -2,7 +2,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/Zeo-shark/StockDiction/blob/main/README.md">
-    <img src=".assets/bot_icon.png" alt="Logo" width="80" height="80">
+    <img src="StockDiction/assets/bot_icon.png" alt="Logo" width="80" height="80">
   </a>
 
   <h1 align="center">StocDiction</h1>

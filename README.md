@@ -5,7 +5,7 @@
     <img src="https://raw.githubusercontent.com/Zeo-shark/StockDiction/main/assets/bot_icon.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h1 align="center">StocDiction</h1>
+  <h1 align="center">StockDiction</h1>
 
   <p align="center">
     One app to help you select the best stocks shares for you
@@ -91,12 +91,12 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+<!-- 1. Get a free API Key at [https://example.com](https://example.com) 
+<!-- 2. Clone the repo -->
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
    ```
-3. Install NPM packages
+<!-- 3. Install NPM packages 
    ```sh
    npm install
    ```
@@ -110,7 +110,7 @@ This is an example of how to list things you need to use the software and how to
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<!-- Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources. 
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -126,7 +126,7 @@ See the [open issues](https://github.com/othneildrew/Best-README-Template/issues
 <!-- CONTRIBUTING -->
 ## Contributing
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+<!-- Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**. 
 
 1. Fork the Project
 2. Create your Feature Branch 

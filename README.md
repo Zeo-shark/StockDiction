@@ -8,7 +8,7 @@
   <h1 align="center">StocDiction</h1>
 
   <p align="center">
-   
+    One app to help you select the best stocks shares for you
     <br />
     
     

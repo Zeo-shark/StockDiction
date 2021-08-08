@@ -50,26 +50,28 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+**Stock Prediction** Web App based on **Machine Learning** and **Sentiment Analysis** of Tweets. The front end of the Web App is based on **Flask** and **Wordpress**. The App forecasts stock prices of the next seven days for any given stock under **NASDAQ** or **NSE** as input by the user. Predictions are made using three algorithms: **ARIMA, LSTM, Linear Regression**. The Web App combines the predicted prices of the next seven days with the **sentiment analysis of tweets** to give recommendation whether the price is going to rise or fall
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-This a web app based project which predicts the next 7 days stock share pricess with minmum  error. It comes with the highly responsive bot
-
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
 
 A list of commonly used resources that I find helpful are listed in the acknowledgements.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Laravel](https://laravel.com)
+<ul>
+<a href="https://wordpress.org/"><li>Wordpress</a></li>
+<a href="https://flask.palletsprojects.com/"><li>Flask</a></li>
+<a href="https://www.tensorflow.org/"><li>Tensorflow</a></li>
+<a href="https://keras.io/"><li>Keras</a></li>
+<a href="https://pypi.org/project/yfinance/"><li>Yahoo Finance</a></li>
+<a href="https://www.alphavantage.co/"><li>Alphavantage</a></li>
+<a href="https://scikit-learn.org/"><li>Scikit-Learn</a></li>
+<a href="https://www.tweepy.org/"><li>Tweepy</a></li>
+<a href="https://www.python.org/"><li>Python</a></li>
+<a href="https://www.php.net/"><li>PHP</a></li>
+<a href="https://www.w3.org/Style/CSS/Overview.en.html"><li>CSS</a></li>
+<a href="https://www.w3.org/TR/html52/"><li>HTML</a></li>
+<a href="https://www.javascript.com/"><li>Javascript</a></li>
+</ul>
 
 
 
@@ -146,7 +148,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+
 
 
 

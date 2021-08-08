@@ -6,7 +6,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
-  <summary>Table of Contents</summary>
+  <summary> 🚩 Table of Contents</summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -37,7 +37,7 @@
 
 ### Downloading and instalations-steps
 
-## Credits
+## 💬 Credits
 
 This software uses the following open source packages:
 

@@ -1,5 +1,6 @@
 # analyze google searches to predict stock market
 # remove tweets from other languages?
+
 from __future__ import division
 import tweepy
 import shutil
@@ -58,9 +59,9 @@ class twitter_analyze:
 		# tweets['sentiment'].value_counts().plot(kind='bar')
 		# tweets['sentiment'].value_counts().plot(kind='pie')
 		# plt.show()
-		print tweets
+		print(tweets)
 		counts_list = []
-		print tweets['sentiment'].value_counts()['positive']
+		print(tweets['sentiment'].value_counts()['positive'])
 		counts_list.append(tweets['sentiment'].value_counts()['positive'])
 		counts_list.append(tweets['sentiment'].value_counts()['negative'])
 		counts_list.append(tweets['sentiment'].value_counts()['neutral'])
@@ -75,7 +76,7 @@ class twitter_analyze:
 
 		return counts_list
 
-    def analyze_stock(self, stock):
+	def analyze_stock(self, stock):
 		all_tweets = self.get_tweets(stock)
 		tweets = pd.DataFrame()
 		analysis_list = []
@@ -98,7 +99,7 @@ class twitter_analyze:
 		tweets['subjectivity'] = np.array(subjectivity_list)
 		tweets['date'] = np.array(tweet_dates)
 		# tweets = tweets.sort_values(by=['subjectivity'], ascending=0)
-		print tweets
+		print(tweets)
 		# tweets.to_csv('data/%s_tweets.csv' % stock)
 		return tweets
 
@@ -112,7 +113,7 @@ class twitter_analyze:
 
 		#keep grabbing tweets until there are no tweets left to grab
 		while len(public_tweets) > 0:
-		    print "getting tweets before %s" % (oldest)
+		    print("getting tweets before %s" % (oldest))
 		    # filter by users too, todo
 		    public_tweets = api.search(stock,count=200,max_id=oldest)
 		    
@@ -122,21 +123,20 @@ class twitter_analyze:
 		    #update the id of the oldest tweet less one
 		    oldest = alltweets[-1].id - 1
 		    
-		    print "...%s tweets downloaded so far" % (len(alltweets))
+		    print("...%s tweets downloaded so far" % (len(alltweets)))
 
 		    if len(alltweets) > 500:
 		    	break
 
 		#transform the tweepy tweets into a 2D array that will populate the csv 
 		outtweets = [[tweet.id_str, tweet.created_at, tweet.text.encode("utf-8")] for tweet in public_tweets]
-		print outtweets
+		print(outtweets)
 		return alltweets
 
 if __name__ == "__main__":
 	analyze = twitter_analyze()
 	# analyze.analyze_stock('$AAPL')
-	print analyze.analyze_feelings('$TSLA')
+	print(analyze.analyze_feelings('$TSLA'))
 	# analyze.analyze_feelings('$AAPL')
 	# analyze.analyze_feelings('$GOOGL')
-
 
